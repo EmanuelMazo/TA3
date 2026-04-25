@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "proveedor-api-tests",
+		"name": "Proveedor API Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET - Listar Todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/rest/proveedor/lista",
+					"host": ["{{baseUrl}}"],
+					"path": ["rest", "proveedor", "lista"]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Buscar por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/rest/proveedor/id/1",
+					"host": ["{{baseUrl}}"],
+					"path": ["rest", "proveedor", "id", "1"]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Buscar por Razon Social",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/rest/proveedor/razon?razon=Tecno",
+					"host": ["{{baseUrl}}"],
+					"path": ["rest", "proveedor", "razon"],
+					"query": [
+						{
+							"key": "razon",
+							"value": "Tecno"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST - Registrar Proveedor",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"razonsocial\": \"Empresa de Prueba S.A.C.\",\n    \"ruc\": \"20987654321\",\n    \"direccion\": \"Av. Prueba 123, Lima\",\n    \"celular\": \"999888777\",\n    \"contacto\": \"Juan Perez\",\n    \"estado\": 1,\n    \"pais\": {\n        \"idPais\": 1\n    },\n    \"tipoProveedor\": {\n        \"idDataCatalogo\": 1\n    }\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/rest/proveedor/registrar",
+					"host": ["{{baseUrl}}"],
+					"path": ["rest", "proveedor", "registrar"]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT - Actualizar Proveedor",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"razonsocial\": \"Empresa Actualizada S.A.C.\",\n    \"ruc\": \"20987654321\",\n    \"direccion\": \"Av. Nueva 456, Lima\",\n    \"celular\": \"999888777\",\n    \"contacto\": \"Juan Perez Actualizado\",\n    \"estado\": 1,\n    \"pais\": {\n        \"idPais\": 1\n    },\n    \"tipoProveedor\": {\n        \"idDataCatalogo\": 2\n    }\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/rest/proveedor/actualizar/1",
+					"host": ["{{baseUrl}}"],
+					"path": ["rest", "proveedor", "actualizar", "1"]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE - Eliminar Proveedor",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/rest/proveedor/eliminar/1",
+					"host": ["{{baseUrl}}"],
+					"path": ["rest", "proveedor", "eliminar", "1"]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}
